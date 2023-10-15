@@ -1,11 +1,11 @@
 import React from "react";
-import logo from "./../../assets/images/ecommerce logo.jpeg";
+import logo from "./../../assets/images/logo.png";
 const Navbar = () => {
   return (
     <>
       <div className="bg-black p-2 w-full">
         <h3 className="text-white font-inter text-2xl font-bold tracking-normal leading-none text-center">
-          Welcome All
+          R-Mark Store, Welcome
         </h3>
       </div>
       <div className="flex justify-around items-center">
