@@ -1,13 +1,21 @@
 import React from "react";
 import "./App.css";
 import Main from "./components/Main/Main";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import FilteredProducts from "./components/FilteredProducts/FilteredProducts";
 
 function App() {
   return (
     <div className="App">
-      <Main>
-        
-      </Main>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<Main></Main>} path="/"></Route>
+          <Route
+            element={<FilteredProducts></FilteredProducts>}
+            path="/filtered-products/:type"
+          ></Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
