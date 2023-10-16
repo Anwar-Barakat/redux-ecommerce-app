@@ -48,8 +48,8 @@ const Slider = () => {
               <div
                 className={
                   slideState.value === parseInt(dot.id)
-                    ? "bg-cyan-300 rounded-full p-3 cursor-pointer w-1 shadow-md"
-                    : "bg-gray-300 rounded-full p-3 cursor-pointer w-1 shadow-sm  hover:bg-cyan-200 duration-300 ease-out"
+                    ? "bg-blue-300 rounded-full p-3 cursor-pointer w-1 shadow-md"
+                    : "bg-gray-300 rounded-full p-3 cursor-pointer w-1 shadow-sm  hover:bg-blue-200 duration-300 ease-out"
                 }
                 onClick={() => {
                   dispatch(dotSlide(parseInt(dot.id)));
@@ -62,7 +62,7 @@ const Slider = () => {
       <div>
         <button
           className="absolute 
-           hover:bg-cyan-300
+           hover:bg-blue-300
           duration-300 ease-out
           top-[50%] right-4 bg-white rounded-full p-2 cursor-pointer shadow-md flex justify-center items-center"
           onClick={() => dispatch(nextSlide(slideState.value + 1))}
@@ -84,7 +84,7 @@ const Slider = () => {
         </button>
         <button
           className="absolute 
-          hover:bg-cyan-300
+          hover:bg-blue-300
           duration-300 ease-out
           top-[50%] left-4 bg-white rounded-full p-2 cursor-pointer shadow-md flex justify-center items-center "
           onClick={() => dispatch(prevSlide(slideState.value - 1))}
