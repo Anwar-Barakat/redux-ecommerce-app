@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Select, Option, Button } from "@material-tailwind/react";
+import { addToCart } from "../../features/slices/cartSlice";
 
 const SingleProduct = () => {
+  const dispatch = useDispatch();
   const { selectedProduct } = useSelector((state) => state.products);
 
   const [size, setSize] = useState("");
   const [color, setColor] = useState("");
-  console.log(size);
   return (
     <div className="flex justify-center items-center py-10">
       <div className="flex justify-around items-center gap-24">
@@ -76,6 +77,19 @@ const SingleProduct = () => {
                 variant="outlined"
                 ripple={true}
                 className="hover:bg-blue-600 hover:text-white duration-300 ease-out"
+                onClick={() => {
+                  dispatch(
+                    addToCart({
+                      id: selectedProduct.id,
+                      name: selectedProduct.name,
+                      size: size,
+                      color: color,
+                      price: selectedProduct.price,
+                      amount: 1,
+                      totalPrice: selectedProduct.price,
+                    })
+                  );
+                }}
               >
                 Add To Cart
               </Button>
