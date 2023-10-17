@@ -11,30 +11,33 @@ const cartSlice = createSlice({
   reducers: {
     addToCart: (state, action) => {
       const product = action.payload;
+
       try {
         const exists = state.cart.find(
           (cartProd) =>
-            cartProd.id === product.id &&
+            cartProd.id === product.selected.id &&
             cartProd.size === product.size &&
             cartProd.color === product.color
         );
         if (exists) {
           exists.amount++;
-          exists.totalPrice += product.price;
+          exists.totalPrice += product.selected.price;
           state.totalAmount++;
-          state.totalPrice += product.price;
+          state.totalPrice += product.selected.price;
         } else {
           state.cart.push({
-            id: product.id,
-            name: product.name,
-            color: product.color,
-            price: product.price,
+            id: product.selected.id,
+            name: product.selected.name,
+            text: product.selected.text,
+            color: action.payload.color,
+            price: product.selected.price,
+            img: product.selected.img,
             size: product.size,
             amount: 1,
-            totalPrice: product.price,
+            totalPrice: product.selected.price,
           });
           state.totalAmount++;
-          state.totalPrice += product.price;
+          state.totalPrice += product.selected.price;
         }
       } catch (err) {
         return err;

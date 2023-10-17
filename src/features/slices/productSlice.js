@@ -16,7 +16,6 @@ const productSlice = createSlice({
         );
         state.filterState = filter;
 
-        console.log("filter", filter);
         const saveState = JSON.stringify(filter);
         sessionStorage.setItem("filterData", saveState);
       } catch (error) {

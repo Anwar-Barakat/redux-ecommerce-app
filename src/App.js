@@ -8,7 +8,6 @@ import { useSelector } from "react-redux";
 
 function App() {
   const cart = useSelector((state) => state.cart);
-  console.log(cart);
   return (
     <div className="App">
       <BrowserRouter>
