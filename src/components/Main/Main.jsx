@@ -3,6 +3,7 @@ import Navbar from "../Navbar/Navbar";
 import Slider from "../Slider/Slider";
 import NavigateButtons from "../NavigateButtons/NavigateButtons";
 import FilteredProducts from "../FilteredProducts/FilteredProducts";
+import Footer from "../Footer/Footer";
 
 const Main = () => {
   return (
@@ -11,6 +12,7 @@ const Main = () => {
       <Slider />
       <NavigateButtons />
       <FilteredProducts />
+      <Footer />
     </div>
   );
 };

@@ -3,6 +3,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { filterHandling } from "../../features/slices/productSlice";
 import { Link } from "react-router-dom";
+import NotificationMsg from "../Layouts/NotificationMsg";
 
 const NavigateButtons = () => {
   const dispatch = useDispatch();
@@ -19,9 +20,8 @@ const NavigateButtons = () => {
   ];
   return (
     <>
-      <div className="flex items-center justify-center w-[50%] mx-auto rounded shadow-lg mt-16 p-3 bg-blue-400 mb-4">
-        <h3 className="text-white font-bold font-inter">SALES UP TO 40%</h3>
-      </div>
+      <NotificationMsg>SALES UP TO 40%</NotificationMsg>
+
       <div className="flex items-center justify-center mb-4">
         <img
           className="h-96 rounded-lg object-center shadow-xl shadow-blue-gray-900/50 w-[70%]"

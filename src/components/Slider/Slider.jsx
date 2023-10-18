@@ -33,7 +33,7 @@ const Slider = () => {
                 )}
               </div>
               <div className="absolute top-44 mx-auto inset-x-1/4 text-center tracking-wide">
-                <p className="text-white text-4xl font-inter font-bold tracking-normal leading-none">
+                <p className="text-white text-4xl font-inter font-bold tracking-wider leading-14">
                   {parseInt(slide.id) === slideState.value && slide.text}
                 </p>
               </div>

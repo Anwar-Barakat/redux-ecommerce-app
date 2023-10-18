@@ -22,7 +22,7 @@ const ProductCart = ({ product }) => {
         }}
       >
         <CardHeader floated={false} className="h-80">
-          <img src={product.img} alt={product.name} />
+          <img src={product.img} alt={product.name} className="shadow-lg" />
         </CardHeader>
         <CardBody>
           <div className="mb-2 flex items-center justify-between">

@@ -23,12 +23,12 @@ const Cart = ({ open, setOpen }) => {
           }}
         >
           <DialogHeader>
-            <h1 className="text-black text-2xl pb-8 font-inter font-bold tracking-normal leading-none">
+            <h1 className="text-black text-md pb-8 font-inter font-bold tracking-normal leading-none">
               Your shopping bag
             </h1>
           </DialogHeader>
           <DialogBody
-            divider={true}
+            divider="true"
             className="flex flex-col justify-center items-start"
           >
             {cart.cart.map((product, index) => {
@@ -83,7 +83,7 @@ const Cart = ({ open, setOpen }) => {
               );
             })}
           </DialogBody>
-          <DialogFooter divider={true}>
+          <DialogFooter divider="true">
             <div className="font-bold flex items-center justify-between w-full">
               <span className="inline-block">Total Price</span>
               <span className="inline-block font-inter">
@@ -101,16 +101,21 @@ const Cart = ({ open, setOpen }) => {
           }}
         >
           <DialogHeader>
-            <h1 className="text-black text-xl pb-2 font-inter font-bold tracking-normal leading-none">
+            <h1 className="text-black text-md pb-2 font-inter font-bold tracking-normal leading-none">
               Your shopping bag is empty
             </h1>
           </DialogHeader>
-          <DialogBody>
-            <h1 className="text-black text-2xl pb-2 font-inter font-bold tracking-normal leading-none">
+          <DialogBody divider="true">
+            <h1 className="text-black text-xl pb-2 font-inter font-bold tracking-normal leading-none">
               Please, add some products to your shopping bag.
             </h1>
-            <p>Regards</p>
           </DialogBody>
+          <DialogFooter divider="true">
+            <div className="font-bold flex items-center justify-between w-full">
+              <span className="inline-block">Total Price</span>
+              <span className="inline-block font-inter">$0.00</span>
+            </div>
+          </DialogFooter>
         </Dialog>
       )}
     </>

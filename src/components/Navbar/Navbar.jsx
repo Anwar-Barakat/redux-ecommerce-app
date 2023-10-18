@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import logo from "./../../assets/images/logo.png";
 import Cart from "../Cart/Cart";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 const Navbar = () => {
   const cart = useSelector((state) => state.cart);
   const [open, setOpen] = useState(false);
@@ -9,13 +10,17 @@ const Navbar = () => {
   return (
     <>
       <div className="bg-black p-2 w-full">
-        <h3 className="text-white font-inter text-2xl font-bold tracking-normal leading-none text-center">
-          R-Mark Store, Welcome
-        </h3>
+        <Link to={`/`}>
+          <h3 className="text-white font-inter text-2xl font-bold tracking-normal leading-none text-center">
+            R-Mark Store, Welcome
+          </h3>
+        </Link>
       </div>
       <div className="flex justify-around items-center">
         <div>
-          <img src={logo} alt="Logo" className="h-28 w-full" />
+          <Link to={`/`}>
+            <img src={logo} alt="Logo" className="h-28 w-full" />
+          </Link>
         </div>
         <div className="flex flex-row items-center gap-4">
           <button className="font-inter text-base font-medium tracking-normal leading-none text-center">
