@@ -4,35 +4,38 @@ import {
   DialogHeader,
   DialogBody,
   DialogFooter,
+  Button,
 } from "@material-tailwind/react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { removeFromCart } from "../../features/slices/cartSlice";
 
 const Cart = ({ open, setOpen }) => {
+  const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
   return (
     <>
       {cart.cart.length > 0 ? (
         <Dialog
-          className="border-none outline-none"
+          className="border-none outline-none overflow-y-scroll max-h-[400px]"
           open={open}
           handler={() => {
             setOpen(false);
           }}
         >
           <DialogHeader>
-            <h1 className="text-black text-2xl pb-2 font-inter font-bold tracking-normal leading-none">
+            <h1 className="text-black text-2xl pb-8 font-inter font-bold tracking-normal leading-none">
               Your shopping bag
             </h1>
           </DialogHeader>
           <DialogBody
-            divider
+            divider={true}
             className="flex flex-col justify-center items-start"
           >
             {cart.cart.map((product, index) => {
               return (
                 <div
                   key={product.id}
-                  className={`flex items-start  py-4 gap-8 border-b`}
+                  className={`flex items-start  py-8 gap-8`}
                 >
                   <div className="flex grow-[1]">
                     <img
@@ -60,14 +63,34 @@ const Cart = ({ open, setOpen }) => {
                       <p className="font-bold">Size : {product.size}</p>
                       <p className="font-bold">Amount : {product.amount}</p>
                     </div>
-                    <p className="font-bold pt-2">
-                      Total Item Price : ${product.totalPrice}
-                    </p>
+                    <div className="flex justify-between pt-2 flex-wrap">
+                      <p className="font-bold pt-2">
+                        Total Item Price : ${product.totalPrice}
+                      </p>
+                      <Button
+                        variant="gradient"
+                        color="red"
+                        size="sm"
+                        onClick={() => {
+                          dispatch(removeFromCart(product));
+                        }}
+                      >
+                        Remove
+                      </Button>
+                    </div>
                   </div>
                 </div>
               );
             })}
           </DialogBody>
+          <DialogFooter divider={true}>
+            <div className="font-bold flex items-center justify-between w-full">
+              <span className="inline-block">Total Price</span>
+              <span className="inline-block font-inter">
+                ${cart.totalPrice}
+              </span>
+            </div>
+          </DialogFooter>
         </Dialog>
       ) : (
         <Dialog
