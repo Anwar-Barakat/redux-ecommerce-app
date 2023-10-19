@@ -6,6 +6,7 @@ import {
   CardFooter,
   Typography,
   Tooltip,
+  Button,
 } from "@material-tailwind/react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
@@ -37,11 +38,10 @@ const ProductCart = ({ product }) => {
             {product.text}
           </Typography>
         </CardBody>
-        <CardFooter className="flex justify-center gap-7 pt-2">
+        <CardFooter className="flex gap-7 pt-2 flex-col items-center">
           <Tooltip content="colors">
             <Typography
               as="a"
-              href="#facebook"
               variant="lead"
               textGradient
               className="flex gap-1"
@@ -53,6 +53,24 @@ const ProductCart = ({ product }) => {
                   style={{ background: c }}
                 ></i>
               ))}
+            </Typography>
+          </Tooltip>
+          <Tooltip content="add to cart">
+            <Typography
+              as="a"
+              variant="lead"
+              textGradient
+              className="flex gap-1"
+            >
+              <Button
+                size="lg"
+                color="gray"
+                variant="outlined"
+                ripple={true}
+                className="hover:bg-blue-600 hover:text-white duration-300 ease-out"
+              >
+                Add To Cart
+              </Button>
             </Typography>
           </Tooltip>
         </CardFooter>

@@ -1,10 +1,15 @@
 import React, { useState } from "react";
 import logo from "./../../assets/images/logo.png";
 import Cart from "../Cart/Cart";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { Avatar } from "@material-tailwind/react";
+import { logout } from "../../features/slices/authSlice";
 const Navbar = () => {
+  const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
+  const { user } = useSelector((state) => state.auth);
+
   const [open, setOpen] = useState(false);
 
   return (
@@ -23,7 +28,10 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="flex flex-row items-center gap-4">
-          <button className="font-inter text-base font-medium tracking-normal leading-none text-center">
+          <button
+            className="font-inter text-base font-medium tracking-normal leading-none text-center"
+            onClick={() => dispatch(logout())}
+          >
             Logout
           </button>
           <div className="flex justify-around items-center gap-1">
@@ -45,6 +53,7 @@ const Navbar = () => {
               Wishlist
             </p>
           </div>
+          {user.image && <Avatar src={user.image} alt="avatar" size="sm" />}
           <div
             className="flex flex-row items-center cursor-pointer gap-1"
             onClick={() => {
