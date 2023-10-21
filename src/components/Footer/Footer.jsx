@@ -1,5 +1,6 @@
 import React from "react";
 import { Typography } from "@material-tailwind/react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const LINKS = [
@@ -58,8 +59,7 @@ const Footer = () => {
               variant="small"
               className="mb-4 text-center font-normal text-blue-gray-900 md:mb-0"
             >
-              &copy; {currentYear}{" "}
-              <a href="https://material-tailwind.com/">R-Mark</a>. All Rights
+              &copy; {currentYear} <Link to="/">R-Mark</Link>. All Rights
               Reserved.
             </Typography>
             <div className="flex gap-4 text-blue-gray-900 sm:justify-center">
