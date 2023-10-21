@@ -20,4 +20,4 @@ The app will include the following features:
 * User authentication and registration
 
 #### Take a look
-![Website Overview](./src/assets/overview.png)
+![Website Overview](./src/assets/overview.jpg)
